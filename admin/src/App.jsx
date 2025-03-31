@@ -64,7 +64,7 @@ function App() {
                 <Route index element={<HRDashboard />} />
                 <Route path="addjobs" element={<AddJob />} />
                 <Route path="joblist" element={<JobList />} />
-                <Route path="job-applicants" element={<JobApplicants />} />
+                <Route path="job-applications" element={<JobApplicants />} />
                 <Route path="profile" element={<HRProfile />} />
             </Route>
 

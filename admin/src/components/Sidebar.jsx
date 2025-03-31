@@ -66,7 +66,7 @@ const Sidebar = () => {
     { icon: <Home />, text: 'Dashboard', route: '/hr' },
     { icon: <Briefcase />, text: 'Add Jobs', route: '/hr/addjobs' },
     { icon: <List />, text: 'Job List', route: '/hr/joblist' },
-    { icon: <Users />, text: 'Job Applicants', route: '/hr/job-applicants' },
+    { icon: <Users />, text: 'Job Applicants', route: '/hr/job-applications' },
     { icon: <User />, text: 'Profile', route: '/hr/profile' },
   ];
 
@@ -131,7 +131,7 @@ const Sidebar = () => {
     <div className="flex-1 min-h-screen">
       {/* Sidebar - Fixed Position */}
       <div
-        className={`${sidebarOpen ? 'w-64' : 'w-20'
+        className={`${sidebarOpen ? 'w-48 md:w-60' : ' w-14 md:w-20'
           } bg-white border-r border-gray-200 flex flex-col fixed top-0 left-0 h-screen transition-all duration-300 z-20`}
       >
         {/* Desktop Header inside Sidebar */}
@@ -210,7 +210,7 @@ const Sidebar = () => {
         </header>
 
         {/* Main Content */}
-        <main className="p-6 mt-16 overflow-y-auto h-screen">
+        <main className="my-16 overflow-y-auto ">
           <Outlet />
         </main>
       </div>

@@ -201,7 +201,7 @@ const AdminDashboard = () => {
   };
 
   const handleViewJobDetails = (job) => {
-    console.log(job);
+    // console.log(job);
 
     setSelectedJob(job.details); // Set the selected job details for display
   };
@@ -258,14 +258,14 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen">
       {selectedJob && (
         <JobDetailsModal
           job={selectedJob}
           onClose={() => setSelectedJob(null)}
         />
       )}
-      <main className="flex-1 overflow-y-auto bg-gray-50 p-6">
+      <main className="flex-1 overflow-y-auto p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <div className="bg-white rounded-lg shadow-sm p-6 flex items-center">
             <div className="w-12 h-12 rounded-lg bg-rose-100 flex items-center justify-center mr-4">
@@ -309,10 +309,10 @@ const AdminDashboard = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Application Trend</h3>
+          <div className="bg-white rounded-lg shadow-sm p-4">
+            <h3 className="text-lg font-semibold text-gray-800 mb-6">Application Trend</h3>
             <div className="h-64">
-              <LineChart width={500} height={240} data={stats.applicationTrend}>
+              <LineChart width={400} height={240} data={stats.applicationTrend}>
                 <defs>
                   <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#ff6b6b" stopOpacity={0.8} />
