@@ -265,7 +265,7 @@ const AdminDashboard = () => {
           onClose={() => setSelectedJob(null)}
         />
       )}
-      <main className="flex-1 overflow-y-auto p-6">
+      <main className="flex-1 overflow-y-auto ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <div className="bg-white rounded-lg shadow-sm p-6 flex items-center">
             <div className="w-12 h-12 rounded-lg bg-rose-100 flex items-center justify-center mr-4">

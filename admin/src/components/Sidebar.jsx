@@ -210,7 +210,7 @@ const Sidebar = () => {
         </header>
 
         {/* Main Content */}
-        <main className="my-16 overflow-y-auto ">
+        <main className="my-16 p-4 overflow-y-auto ">
           <Outlet />
         </main>
       </div>
