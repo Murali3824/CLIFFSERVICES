@@ -7,6 +7,7 @@ import {
   Loader2
 } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../../App';
 import JobDetailsModal from '../../components/JobDetailsModel';
 
 const AdminDashboard = () => {
@@ -24,7 +25,7 @@ const AdminDashboard = () => {
   const [error, setError] = useState(null);
   const [selectedJob, setSelectedJob] = useState(null); // State to store job details for display
 
-  const API_URL = 'http://localhost:4000/api';
+  // const API_URL = 'http://localhost:4000/api';
   const token = localStorage.getItem('token');
   const navigate = useNavigate(); // Hook for navigation
 
@@ -44,10 +45,10 @@ const AdminDashboard = () => {
           applicationsResponse,
           usersResponse
         ] = await Promise.all([
-          axios.get(`${API_URL}/admin/hr-profiles`, config),
-          axios.get(`${API_URL}/jobs/list`, config),
-          axios.get(`${API_URL}/applications/admin/all`, config),
-          axios.get(`${API_URL}/admin/users`, config)
+          axios.get(`${API_URL}/api/admin/hr-profiles`, config),
+          axios.get(`${API_URL}/api/jobs/list`, config),
+          axios.get(`${API_URL}/api/applications/admin/all`, config),
+          axios.get(`${API_URL}/api/admin/users`, config)
         ]);
 
         const hrData = hrResponse.data.hrProfiles;
@@ -162,7 +163,7 @@ const AdminDashboard = () => {
         }
       };
 
-      const applicationsResponse = await axios.get(`${API_URL}/applications/admin/all`, config);
+      const applicationsResponse = await axios.get(`${API_URL}/api/applications/admin/all`, config);
       const jobApplications = applicationsResponse.data.applications.filter(app =>
         app.job && app.job._id && app.job._id.toString() === jobId.toString()
       );
@@ -209,7 +210,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure you want to delete this job?')) return;
 
     try {
-      await axios.delete(`${API_URL}/jobs/admin/delete/${jobId}`, {
+      await axios.delete(`${API_URL}/api/jobs/admin/delete/${jobId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
