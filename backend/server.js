@@ -24,7 +24,7 @@ const allowedOrigins = [
     'http://localhost:5174',  // Local frontend
     'http://localhost:5175',  // Local admin
     'https://yourfrontend.com',  // Production frontend
-    'https://admin.yourfrontend.com'  // Production admin
+    'https://cliff-services-career-admin.onrender.com'  // Production admin
 ];
 
 const corsOptions = {
