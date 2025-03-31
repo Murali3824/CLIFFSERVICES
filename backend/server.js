@@ -20,26 +20,27 @@ connectDB();
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+const allowedOrigins = [
+    'http://localhost:5174',  // Local frontend
+    'http://localhost:5175',  // Local admin
+    'https://yourfrontend.com',  // Production frontend
+    'https://admin.yourfrontend.com'  // Production admin
+];
 
-// const corsOptions = {
-//     origin: function (origin, callback) {
-//         const allowedOrigins = [
-//             'http://localhost:5174',  // Client frontend
-//             'http://localhost:5175',  // Admin frontend
-//         ];
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
 
-//         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-//             callback(null, true);
-//         } else {
-//             callback(new Error('Not allowed by CORS'));
-//         }
-//     },
-//     credentials: true,
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization']
-// };
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 
 // API Routes with Versioning
