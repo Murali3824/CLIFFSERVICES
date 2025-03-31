@@ -108,7 +108,6 @@ export const getJobApplications = async (req, res) => {
     try {
         const { jobId } = req.params;
         
-        // First verify the job exists
         const job = await Job.findById(jobId);
         if (!job) {
             return res.status(404).json({ 
@@ -117,7 +116,6 @@ export const getJobApplications = async (req, res) => {
             });
         }
         
-        // Verify that the HR requesting is the one who posted the job
         if (job.postedBy.toString() !== req.user.id) {
             return res.status(403).json({ 
                 success: false, 
@@ -125,8 +123,8 @@ export const getJobApplications = async (req, res) => {
             });
         }
         
-        // Fetch applications
         const applications = await Application.find({ job: jobId })
+            .populate('job', 'title employmentType salaryRange') // Populate job details
             .sort({ appliedAt: -1 });
             
         res.status(200).json({ 
