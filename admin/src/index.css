@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.active{
+  background-color: #08817962;
+  border-color: #088178;
+}
+select,input,textarea{
+  border: 1px solid #c2c2c2;
+  border-radius: 4px;
+  background: white;
+}
