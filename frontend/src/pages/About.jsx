@@ -100,10 +100,10 @@ const About = () => {
             onMouseLeave={() => setIsMouseInAbout(false)}
         >
             {/* Custom cursor */}
-            <div
+            {/* <div
                 ref={cursorRef}
                 className={`custom-cursor hidden md:block ${isMouseInAbout ? 'opacity-100' : 'opacity-0'}`}
-            ></div>
+            ></div> */}
 
             {/* Noise texture overlay */}
             <div className="noise-overlay"></div>

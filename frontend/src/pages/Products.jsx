@@ -15,20 +15,27 @@ export const productsData = [
 ];
 
 const Products = () => {
-
     const [selectedProduct, setSelectedProduct] = useState(1);
     const navigate = useNavigate();
-
 
     // Get the selected product data
     const selectedProductData = productsData.find(p => p.id === selectedProduct);
 
     // Function for demo links since we don't have Router in this artifact
-    const handleLinkClick = (e,url) => {
+    const handleLinkClick = (e, url) => {
         e.preventDefault();
         navigate(url);  // Navigate to the respective product page
-        // window.location.href = selectedProductData.url; // Navigate to the respective product page by refreshing the page
+    };
 
+    // Function to handle product selection with scroll to top
+    const handleProductSelect = (productId) => {
+        setSelectedProduct(productId);
+        
+        // Scroll to the top of the products section
+        const productsSection = document.getElementById('products');
+        if (productsSection) {
+            productsSection.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
@@ -49,7 +56,7 @@ const Products = () => {
                                 {productsData.map((product) => (
                                     <li key={product.id}>
                                         <button
-                                            onClick={() => setSelectedProduct(product.id)}
+                                            onClick={() => handleProductSelect(product.id)}
                                             className={`w-full text-left p-4 rounded-xl transition-all duration-300 flex items-center group ${selectedProduct === product.id
                                                 ? 'bg-gradient-to-r from-cyan-900/50 to-indigo-900/30 border border-cyan-800/50'
                                                 : 'hover:bg-white/5 border border-transparent'
@@ -126,20 +133,12 @@ const Products = () => {
                                         {/* Action buttons */}
                                         <div className="mb-6">
                                             <button
-                                                onClick={(e) => handleLinkClick(e,selectedProductData.url)}
-
+                                                onClick={(e) => handleLinkClick(e, selectedProductData.url)}
                                                 className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-full flex items-center gap-2"
                                             >
                                                 <span>Explore Product</span>
                                                 <ArrowUpRight size={16} />
                                             </button>
-
-                                            {/* <button
-                                                onClick={handleLinkClick}
-                                                className="px-4 py-2 border border-zinc-700 text-zinc-300 font-medium rounded-full"
-                                            >
-                                                View Demo
-                                            </button> */}
                                         </div>
 
                                         {/* Technical specs preview */}

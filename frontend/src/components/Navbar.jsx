@@ -65,6 +65,8 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             setScrollPosition(window.scrollY);
+            
+            // Only do scroll-based highlighting on the home page
             if (location.pathname === '/') {
                 const sections = navItems.map(item => item.href.split('#')[1]).filter(Boolean);
                 for (const section of sections) {
@@ -79,25 +81,44 @@ const Navbar = () => {
                 }
             }
         };
+        
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [location.pathname, navItems]);
 
     useEffect(() => {
-        
-        if (location.pathname === '/careers') {
+        // Check for specific product or service pages
+        if (location.pathname.startsWith('/services/')) {
+            setActiveSection('services');
+        } else if (location.pathname.startsWith('/products/')) {
+            setActiveSection('products');
+        } else if (location.pathname === '/careers') {
             setActiveSection('careers');
         } else if (location.pathname === '/loginsignup' && isLoggedIn) {
             navigate('/'); // Redirect to home if logged in
-        } else {
+        } else if (location.pathname === '/') {
+            // On home page, use hash or default to 'home'
             const hash = location.hash.slice(1);
             setActiveSection(hash || 'home');
         }
     }, [location, isLoggedIn, navigate]);
 
     const handleNavClick = (href) => {
-        const section = href.split('#')[1] || '';
-        if (section) setActiveSection(section);
+        const isFullPath = !href.startsWith('/#');
+        
+        if (href === '/careers') {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        if (isFullPath) {
+            // For full paths like /careers or /services/something
+            const section = href.split('/')[1] || '';
+            setActiveSection(section);
+        } else {
+            // For hash links like /#services
+            const section = href.split('#')[1] || '';
+            setActiveSection(section);
+        }
+        
         setIsMenuOpen(false);
     };
 
@@ -160,6 +181,28 @@ const Navbar = () => {
         };
     }, []);
 
+    // Helper function to determine if a nav item is active
+    const isNavItemActive = (item) => {
+        // Direct match for non-hash routes like /careers
+        if (item.href === '/careers' && location.pathname === '/careers') {
+            return true;
+        }
+        
+        // Handle services pages
+        if (item.href === '/#services' && location.pathname.startsWith('/services/')) {
+            return true;
+        }
+        
+        // Handle products pages
+        if (item.href === '/#products' && location.pathname.startsWith('/products/')) {
+            return true;
+        }
+        
+        // Handle hash-based navigation
+        const section = item.href.split('#')[1] || '';
+        return location.pathname === '/' && section === activeSection;
+    };
+
     return (
         <header className="fixed w-full z-50 transition-all duration-300">
             <nav ref={navRef} className={`${navbarBg} transition-all duration-300 px-4 lg:px-8`}>
@@ -185,7 +228,7 @@ const Navbar = () => {
                         <div className="hidden lg:flex items-center space-x-4">
                             <div className={`flex gap-1 p-1 ${isScrolled ? 'bg-gray-100' : 'bg-black/20'} rounded-full backdrop-blur-sm`}>
                                 {navItems.map((item) => {
-                                    const isActive = location.pathname === '/careers' && item.href === '/careers' ? true : item.href.includes(activeSection);
+                                    const isActive = isNavItemActive(item);
                                     return (
                                         <Link
                                             key={item.href}
@@ -248,7 +291,7 @@ const Navbar = () => {
                 <div className={`h-full transition-all duration-500 transform ${isMenuOpen ? 'translate-y-0' : '-translate-y-10'}`}>
                     <div className="h-full flex flex-col p-6 max-h-screen overflow-auto space-y-2">
                         {navItems.map((item) => {
-                            const isActive = location.pathname === '/careers' && item.href === '/careers' ? true : item.href.includes(activeSection);
+                            const isActive = isNavItemActive(item);
                             return (
                                 <Link
                                     key={item.href}

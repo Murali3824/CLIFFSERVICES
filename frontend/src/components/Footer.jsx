@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Twitter, Linkedin, Github, MapPin, Mail, Phone, ArrowRight, ExternalLink } from 'lucide-react';
+import { Twitter, Linkedin, MapPin, Mail, Phone, ArrowRight, ExternalLink, Facebook } from 'lucide-react';
 import { assets } from '../assets/assets';
 
 const Footer = () => {
@@ -42,13 +42,13 @@ const Footer = () => {
                         {/* Social Icons */}
                         <div className="flex gap-4">
                             {[
-                                { name: "Twitter", icon: <Twitter size={18} />, color: "hover:bg-blue-500" },
-                                { name: "LinkedIn", icon: <Linkedin size={18} />, color: "hover:bg-blue-700" },
-                                { name: "GitHub", icon: <Github size={18} />, color: "hover:bg-slate-700" },
+                                { name: "Twitter", icon: <Twitter size={18} />, color: "hover:bg-blue-500", url:"https://x.com/cliffservices9" },
+                                { name: "LinkedIn", icon: <Linkedin size={18} />, color: "hover:bg-blue-700", url:"https://www.linkedin.com/company/cliff-services-inc" },
+                                { name: "Facebook", icon: <Facebook size={18} />, color: "hover:bg-slate-700", url:"https://www.facebook.com/people/Cliff-Services/61552332898632" },
                             ].map((social, index) => (
                                 <a
                                     key={index}
-                                    href="#"
+                                    href={social.url}
                                     className={`w-10 h-10 flex items-center justify-center rounded-md bg-slate-800 ${social.color} hover:text-white transition-all duration-300 group relative`}
                                     aria-label={social.name}
                                 >
