@@ -166,7 +166,7 @@ const Services = () => {
     };
 
     return (
-        <section id='services' className="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <section id='services' className="py-24 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-2 md:px-4">
                 {/* Heading with animation */}
                 <motion.div 

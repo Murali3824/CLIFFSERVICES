@@ -151,7 +151,7 @@ const StaffingSolutions = () => {
 
 
     return (
-        <div id='staffing-solutions' className="min-h-screen bg-gradient-to-tr from-teal-50 via-gray-100 to-sky-50 font-sans overflow-hidden">
+        <div id='staffing-solutions' className="min-h-screen py-20 font-sans overflow-hidden">
             {/* Floating Header with Frame Motion */}
             <motion.header
                 className="relative py-8 md:py-12 px-6 bg-gradient-to-r from-teal-500 to-sky-600 text-white transform  shadow-xl"
@@ -191,7 +191,7 @@ const StaffingSolutions = () => {
             <section
                 id="features"
                 ref={featuresRef}
-                className="py-24 bg-white relative"
+                className="py-10 bg-white relative"
             >
                 <div className="max-w-6xl mx-auto px-4">
                     <div className={`text-center mb-16 transition-all duration-700 transform ${isIntersecting.features ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>

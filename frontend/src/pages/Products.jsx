@@ -33,7 +33,7 @@ const Products = () => {
 
     return (
         <div id="products" className="bg-zinc-950 p-4 md:p-8 min-h-screen">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl py-12 mx-auto">
                 <h1 className="text-white text-4xl font-bold mb-12">PRODUCTS</h1>
 
                 {/* Product showcase with split view */}

@@ -54,7 +54,7 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="min-h-screen bg-gray-50 py-16 flex flex-col items-center justify-start">
+        <div id="contact" className="min-h-screen bg-gray-50 py-20 flex flex-col items-center justify-start">
             {/* Contact Form - Top */}
             <div className="w-full max-w-6xl mx-auto px-3 md:px-6 mb-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
