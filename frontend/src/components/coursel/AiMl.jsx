@@ -40,11 +40,6 @@ const AiMl = () => {
                         <p className="text-silver-200">Boost productivity with custom AI tools.</p>
                     </li>
                 </ul>
-
-                {/* Call to Action */}
-                <button className="px-8 py-4 bg-gradient-to-r from-amber-900 to-gray-900 text-amber-100 font-medium rounded-md transition-all duration-300 hover:shadow-amber-500/40 hover:scale-105">
-                    Start Innovating Now
-                </button>
             </div>
         </section>
     );

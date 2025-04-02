@@ -39,11 +39,6 @@ const CyberSec = () => {
                         <p className="text-silver-200">Stay ahead of risks with expert threat analysis.</p>
                     </li>
                 </ul>
-
-                {/* Call to Action */}
-                <button className="px-8 py-4 bg-gradient-to-r from-purple-900 to-gray-800 text-amber-100 font-medium rounded-md transition-all duration-300 hover:shadow-amber-500/40 hover:scale-105">
-                    Get Protected Today
-                </button>
             </div>
         </section>
     );

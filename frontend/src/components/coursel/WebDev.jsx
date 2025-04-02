@@ -40,11 +40,6 @@ const WebDev = () => {
                         <p className="text-silver-200">Scale up easily as your business grows.</p>
                     </li>
                 </ul>
-
-                {/* Call to Action */}
-                <button className="px-8 py-4 bg-gradient-to-r from-gray-800 to-silver-900 text-amber-100 font-medium rounded-md transition-all duration-300 hover:shadow-amber-500/40 hover:scale-105">
-                    Launch Your Site
-                </button>
             </div>
         </section>
     );

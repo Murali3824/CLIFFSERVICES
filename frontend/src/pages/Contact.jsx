@@ -25,10 +25,10 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const serviceID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS Service ID
-        const templateID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS Template ID
-        const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS Public Key
-        const companyEmail = 'contact@yourcompany.com'; // Replace with your company email
+        const serviceID = 'service_yla6w1u'; // Replace with your EmailJS Service ID
+        const templateID = 'template_gpr86j8'; // Replace with your EmailJS Template ID
+        const publicKey = 'CQhQ6NC8px4ES2ePa'; // Replace with your EmailJS Public Key
+        const companyEmail = 'careers@cliffservice.com'; // Replace with your company email
 
         const templateParams = {
             from_name: formData.name,

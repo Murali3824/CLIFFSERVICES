@@ -51,8 +51,7 @@ import uk1 from './uk1.webp'
 import c1 from './c1.jpg'
 import i1 from './i1.jpg'
 import a1 from './a1.webp'
-
-
+import sarovar from './sarovar.jpg'
 
 
 
@@ -68,5 +67,6 @@ export const assets = {
     t1, t2, t3, t4, t5, t6, t7, t8, t9, t10,
     t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21,t22,
     usa1,uk1,c1,i1,a1,
+    sarovar,
 
 };

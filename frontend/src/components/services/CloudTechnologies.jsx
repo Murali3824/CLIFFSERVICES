@@ -202,15 +202,6 @@ const CloudTechnologies = () => {
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                                 Accelerate your digital transformation with scalable and secure cloud solutions, ensuring agility, security, and seamless business operations.
                             </p>
-
-                            <div className="flex space-x-4">
-                                <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-white hover:shadow-lg transition-all duration-300">
-                                    Get Started
-                                </button>
-                                <button className="px-6 py-3 bg-white/10 rounded-full font-medium text-white hover:bg-white/20 transition-all duration-300">
-                                    Learn More
-                                </button>
-                            </div>
                         </div>
                         <div className="md:w-1/2">
                             <div className="relative">

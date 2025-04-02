@@ -122,15 +122,6 @@ const AIChatbotAssistantDetail = () => {
                                 ))}
                             </ul>
                         </div>
-
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="flex-1 px-8 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-500 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
-                                View Demo
-                            </button>
-                            <button className="flex-1 px-8 py-3 rounded-lg border border-gray-700 hover:border-purple-500 text-gray-300 font-medium transition-colors">
-                                Technical Details
-                            </button>
-                        </div>
                     </div>
                 </div>
 

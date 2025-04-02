@@ -1,10 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Twitter, Linkedin, MapPin, Mail, Phone, ArrowRight, ExternalLink, Facebook } from 'lucide-react';
+import { Twitter, Linkedin, MapPin, Mail, Phone, ArrowRight, ExternalLink, Facebook, X } from 'lucide-react';
 import { assets } from '../assets/assets';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const [selectedLocation, setSelectedLocation] = useState(null);
+
+    // Location coordinates and details for Google Maps
+    const locations = {
+        uk: { 
+            lat: 51.509865, 
+            lng: -0.118092, 
+            name: 'UK', 
+            address: '25 London Bridge St, London SE1 9SG',
+            phone: '+44 20 1234 5678',
+            email: 'uk@cliffservice.com' 
+        },
+        usa: { 
+            lat: 37.7749, 
+            lng: -122.4194, 
+            name: 'USA', 
+            address: '123 Business Ave, Suite 100, San Francisco, CA',
+            phone: '+1 (800) 123-4567',
+            email: 'usa@cliffservice.com' 
+        },
+        canada: { 
+            lat: 43.6532, 
+            lng: -79.3832, 
+            name: 'Canada', 
+            address: '100 Queen St W, Toronto, ON M5H 2N2',
+            phone: '+1 416 123 4567',
+            email: 'canada@cliffservice.com' 
+        },
+        australia: { 
+            lat: -33.8688, 
+            lng: 151.2093, 
+            name: 'Australia', 
+            address: '10 Market St, Sydney NSW 2000',
+            phone: '+61 2 1234 5678',
+            email: 'australia@cliffservice.com' 
+        },
+        india: { 
+            lat: 28.6139, 
+            lng: 77.2090, 
+            name: 'India', 
+            address: '24 Barakhamba Road, New Delhi, 110001',
+            phone: '+91 11 1234 5678',
+            email: 'india@cliffservice.com' 
+        }
+    };
+
+    // Different options for handling location clicks:
+    
+    // Option 1: Show modal with map (default in this code)
+    const handleLocationClick = (location) => {
+        const locationKey = location.toLowerCase();
+        setSelectedLocation(selectedLocation === locationKey ? null : locationKey);
+    };
+    
+    // Option 2: Direct redirect to internal page (uncomment to use)
+    const redirectToLocationPage = (location) => {
+        const locationKey = location.toLowerCase();
+        window.location.href = `/locations/${locationKey}`;
+    };
+    
+    // Option 3: Open in Google Maps (uncomment to use)
+    const openInGoogleMaps = (location) => {
+        const locationKey = location.toLowerCase();
+        const { lat, lng, address } = locations[locationKey];
+        window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`, '_blank');
+    };
+
+    const closeMap = () => {
+        setSelectedLocation(null);
+    };
+
+    const handleNavClick = (target) => {
+        // Your navigation handling code
+    };
 
     return (
         <footer className="relative bg-slate-950 text-slate-200 py-24 overflow-hidden">
@@ -42,9 +116,9 @@ const Footer = () => {
                         {/* Social Icons */}
                         <div className="flex gap-4">
                             {[
-                                { name: "Twitter", icon: <Twitter size={18} />, color: "hover:bg-blue-500", url:"https://x.com/cliffservices9" },
-                                { name: "LinkedIn", icon: <Linkedin size={18} />, color: "hover:bg-blue-700", url:"https://www.linkedin.com/company/cliff-services-inc" },
-                                { name: "Facebook", icon: <Facebook size={18} />, color: "hover:bg-slate-700", url:"https://www.facebook.com/people/Cliff-Services/61552332898632" },
+                                { name: "Twitter", icon: <Twitter size={18} />, color: "hover:bg-blue-500", url: "https://x.com/cliffservices9" },
+                                { name: "LinkedIn", icon: <Linkedin size={18} />, color: "hover:bg-blue-700", url: "https://www.linkedin.com/company/cliff-services-inc" },
+                                { name: "Facebook", icon: <Facebook size={18} />, color: "hover:bg-slate-700", url: "https://www.facebook.com/people/Cliff-Services/61552332898632" },
                             ].map((social, index) => (
                                 <a
                                     key={index}
@@ -161,8 +235,8 @@ const Footer = () => {
                                     </div>
                                     <div>
                                         <p className="text-slate-300 font-medium">Email Us</p>
-                                        <a href="mailto:info@cliffservices.com" className="text-slate-400 hover:text-indigo-400 transition-colors">
-                                            info@cliffservices.com
+                                        <a href="mailto:careers@cliffservice.com" className="text-slate-400 hover:text-indigo-400 transition-colors">
+                                            careers@cliffservice.com
                                         </a>
                                     </div>
                                 </li>
@@ -206,8 +280,11 @@ const Footer = () => {
                                 {['UK', 'USA', 'Canada', 'Australia', 'India'].map((location, index) => (
                                     <div
                                         key={index}
-                                        // to={`/locations/${location.toLowerCase()}`}
-                                        className=" cursor-pointer px-3 py-1.5 bg-slate-800/70 hover:bg-indigo-500/20 rounded-md text-sm text-slate-300 hover:text-white transition-all duration-300 flex items-center gap-1.5"
+                                        onClick={() => handleLocationClick(location)}
+                                        // Alternative options (uncomment one to use):
+                                        // onClick={() => redirectToLocationPage(location)}
+                                        // onClick={() => openInGoogleMaps(location)}
+                                        className="cursor-pointer px-2 py-1.5 bg-slate-800/70 hover:bg-indigo-500/20 rounded-md text-xs text-slate-300 hover:text-white transition-all duration-300 flex items-center gap-1.5"
                                     >
                                         <MapPin size={14} />
                                         {location}
@@ -217,6 +294,72 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Map Modal */}
+                {selectedLocation && (
+                    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+                        <div className="bg-slate-900 rounded-xl w-full max-w-3xl border border-slate-700 overflow-hidden">
+                            <div className="flex justify-between items-center p-4 border-b border-slate-800">
+                                <h3 className="text-lg font-semibold text-white">
+                                    {locations[selectedLocation].name} Office
+                                </h3>
+                                <button 
+                                    onClick={closeMap}
+                                    className="p-1 rounded-full hover:bg-slate-800 transition-colors"
+                                >
+                                    <X size={20} className="text-slate-400" />
+                                </button>
+                            </div>
+                            <div className="p-4">
+                                <div className="flex flex-col md:flex-row gap-4 mb-4">
+                                    <div className="md:w-1/2">
+                                        <p className="text-slate-300 mb-2 flex items-start gap-2">
+                                            <MapPin size={16} className="mt-1 flex-shrink-0 text-indigo-400" />
+                                            <span>{locations[selectedLocation].address}</span>
+                                        </p>
+                                        <p className="text-slate-300 mb-2 flex items-start gap-2">
+                                            <Phone size={16} className="mt-1 flex-shrink-0 text-indigo-400" />
+                                            <span>{locations[selectedLocation].phone}</span>
+                                        </p>
+                                        <p className="text-slate-300 mb-2 flex items-start gap-2">
+                                            <Mail size={16} className="mt-1 flex-shrink-0 text-indigo-400" />
+                                            <span>{locations[selectedLocation].email}</span>
+                                        </p>
+                                    </div>
+                                    {/* <div className="md:w-1/2 h-40 md:h-auto bg-slate-800 rounded-lg overflow-hidden">
+                                        <iframe
+                                            title={`${locations[selectedLocation].name} Map`}
+                                            width="100%" 
+                                            height="100%" 
+                                            frameBorder="0" 
+                                            style={{ border: 0 }}
+                                            src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(locations[selectedLocation].address)}&center=${locations[selectedLocation].lat},${locations[selectedLocation].lng}&zoom=14`}
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div> */}
+                                </div>
+                                <div className="flex justify-between flex-wrap gap-3">
+                                    <a 
+                                        href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(locations[selectedLocation].address)}`}
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="px-4 py-2 bg-slate-800 hover:bg-slate-700 transition-colors rounded-lg text-white text-sm flex items-center gap-1.5"
+                                    >
+                                        <ArrowRight size={16} /> Get Directions
+                                    </a>
+                                    <div className="flex gap-3">
+                                        <button 
+                                            onClick={closeMap}
+                                            className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-medium text-white hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 text-sm"
+                                        >
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* Bottom Section */}
                 <div className="mt-10 flex flex-col md:flex-row justify-between items-center gap-6">

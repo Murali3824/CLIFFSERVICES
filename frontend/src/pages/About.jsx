@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { assets } from '../assets/assets';
 
 const About = () => {
     const [activeSection, setActiveSection] = useState(0);
@@ -144,12 +145,16 @@ const About = () => {
 
             {/* Main content */}
             <div className="snap-mandatory snap-y h-screen overflow-auto hide-scrollbar">
-                {/* Hero section */}
+                {/* Hero section with added background image */}
                 <section
                     ref={sectionRefs[0]}
                     data-index="0"
-                    className="snap-center h-screen flex items-center relative overflow-hidden"
+                    className="snap-center h-screen flex items-center relative overflow-hidden bg-cover bg-center"
+                    style={{ backgroundImage: `url(${assets.sarovar})` }}
                 >
+                    {/* Dark overlay to improve text readability */}
+                    <div className="absolute inset-0 "></div>
+                    
                     <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 opacity-10">
                         {[...Array(16)].map((_, i) => (
                             <div key={i} className="border border-gray-800"></div>
@@ -160,16 +165,16 @@ const About = () => {
                             <div className="text-sm uppercase tracking-widest mb-2 text-orange-500 split-text">SINCE 2008</div>
                             <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
                                 <span className="block text-white glitch-text" data-text="CLIFF">CLIFF</span>
-                                <span className="block text-orange-500 glitch-text" data-text="SERVICES">SERVICES</span>
+                                <span className="block text-red-400 glitch-text ml-6" data-text="SERVICES">SERVICES</span>
                             </h1>
-                            <p className="text-lg md:text-2xl font-light max-w-2xl text-gray-400 leading-relaxed ml-1 split-text">
+                            <p className="text-lg md:text-2xl font-light max-w-2xl text-gray-100 leading-relaxed ml-1 split-text">
                                 Born in the UK, now leading global innovation. We transform your technological vision into reality with precision and cutting-edge expertise.
                             </p>
-                            <div className="mt-16 flex flex-wrap gap-4">
+                            {/* <div className="mt-16 flex flex-wrap gap-4">
                                 <div className="button-glitch">
                                     <span className="button-text">DISCOVER OUR APPROACH</span>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1/3 h-2/3 bg-orange-500 mix-blend-difference filter blur-3xl rounded-full opacity-30 animate-pulse-slow"></div>
@@ -246,7 +251,7 @@ const About = () => {
                                 <p className="text-xl text-gray-400 max-w-lg leading-relaxed mb-12 split-text">
                                     We weave legacy expertise with visionary innovation, delivering strategies that transcend time and trends.
                                 </p>
-                                <div className="hidden md:block p-6 border border-gray-800 bg-black bg-opacity-50 backdrop-blur-sm relative group hover:border-orange-500 transition-all duration-300">
+                                {/* <div className="hidden md:block p-6 border border-gray-800 bg-black bg-opacity-50 backdrop-blur-sm relative group hover:border-orange-500 transition-all duration-300">
                                     <div className="absolute top-0 right-0 bg-orange-500 w-0 h-1 group-hover:w-full transition-all duration-500"></div>
                                     <div className="absolute bottom-0 left-0 bg-orange-500 w-0 h-1 group-hover:w-full transition-all duration-500"></div>
                                     <div className="text-orange-500 text-3xl mb-4 split-text">"</div>
@@ -260,7 +265,7 @@ const About = () => {
                                             <p className="text-gray-500 text-sm">Director of Operations, GlobalLink</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="md:w-1/2 grid grid-cols-1 gap-6">
                                 <div className="feature-card">
@@ -290,72 +295,6 @@ const About = () => {
                     <div className="absolute -right-20 top-1/3 w-96 h-96 rounded-full bg-orange-500 opacity-10 blur-3xl"></div>
                     <div className="absolute -left-20 bottom-1/3 w-64 h-64 rounded-full bg-purple-500 opacity-10 blur-3xl"></div>
                 </section>
-
-                {/* Client success and CTA */}
-                {/* <section
-                    ref={sectionRefs[3]}
-                    data-index="3"
-                    className="snap-center min-h-screen flex items-center relative overflow-hidden"
-                >
-                    <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 opacity-10">
-                        {[...Array(16)].map((_, i) => (
-                            <div key={i} className="border border-gray-800"></div>
-                        ))}
-                    </div>
-                    <div className="container mx-auto px-6 py-24 relative z-10">
-                        <div className="text-sm uppercase tracking-widest mb-6 text-orange-500 split-text">SUCCESSFUL PARTNERSHIPS</div>
-                        <div className="max-w-4xl mx-auto">
-                            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-center mb-16">
-                                <span className="block">CLIENT</span>
-                                <span className="block text-orange-500">SUCCESS STORIES</span>
-                            </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                                <div className="relative">
-                                    <div className="absolute inset-0 border border-gray-800 transform -translate-x-2 -translate-y-2"></div>
-                                    <div className="absolute inset-0 border border-gray-800 transform translate-x-2 translate-y-2"></div>
-                                    <div className="p-8 border border-gray-800 bg-black relative hover:border-orange-500 transition-all duration-300">
-                                        <div className="text-orange-500 text-3xl mb-4">"</div>
-                                        <p className="text-gray-300 text-lg italic mb-6">
-                                            Cliff Services transformed our outdated systems into a cutting-edge digital platform that increased our productivity by 45%.
-                                        </p>
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10 bg-orange-500 rounded-full mr-4"></div>
-                                            <div>
-                                                <p className="font-bold text-white">Sarah Johnson</p>
-                                                <p className="text-gray-500 text-sm">CTO, TechVision Inc</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="relative mt-12 md:mt-24">
-                                    <div className="absolute inset-0 border border-gray-800 transform -translate-x-2 -translate-y-2"></div>
-                                    <div className="absolute inset-0 border border-gray-800 transform translate-x-2 translate-y-2"></div>
-                                    <div className="p-8 border border-gray-800 bg-black relative hover:border-orange-500 transition-all duration-300">
-                                        <div className="text-orange-500 text-3xl mb-4">"</div>
-                                        <p className="text-gray-300 text-lg italic mb-6">
-                                            Working with Cliff Services gave us the competitive edge we needed in an increasingly digital marketplace.
-                                        </p>
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10 bg-orange-500 rounded-full mr-4"></div>
-                                            <div>
-                                                <p className="font-bold text-white">Alex Rodriguez</p>
-                                                <p className="text-gray-500 text-sm">CEO, Future Enterprises</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-center">
-                                <div className="inline-block">
-                                    <div className="button-glitch-large">
-                                        <span className="button-text">LET'S TRANSFORM YOUR BUSINESS</span>
-                                    </div>
-                                </div>
-                                <p className="text-gray-500 mt-6">Ready to redefine what's possible?</p>
-                            </div>
-                        </div>
-                    </div>
-                </section> */}
             </div>
 
             {/* Custom CSS - Scoped to About */}
