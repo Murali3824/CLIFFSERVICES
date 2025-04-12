@@ -6,6 +6,7 @@ import {
     Download, X
 } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../../App';
 import JobDetailsModal from '../../components/JobDetailsModel';
 
 const HrDashboard = () => {
@@ -21,7 +22,7 @@ const HrDashboard = () => {
     const [error, setError] = useState(null);
     const [selectedJob, setSelectedJob] = useState(null);
 
-    const API_URL = 'http://localhost:4000/api';
+    // const API_URL = 'http://localhost:4000/api';
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
 
