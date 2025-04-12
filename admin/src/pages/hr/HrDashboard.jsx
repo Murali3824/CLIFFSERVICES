@@ -6,8 +6,8 @@ import {
     Download, X
 } from 'lucide-react';
 import axios from 'axios';
-import { API_URL } from '../../App';
 import JobDetailsModal from '../../components/JobDetailsModel';
+import { API_URL } from '../../App';
 
 const HrDashboard = () => {
     const [stats, setStats] = useState({
@@ -35,7 +35,7 @@ const HrDashboard = () => {
                 // console.log('Token:', token);
 
                 // Fetch HR's jobs
-                const jobsResponse = await axios.get(`${API_URL}/jobs/hr`, config);
+                const jobsResponse = await axios.get(`${API_URL}/api/jobs/hr`, config);
                 const jobsData = jobsResponse.data.jobs || [];
                 // console.log('Jobs:', jobsData);
                 const totalJobs = jobsData.length;
@@ -56,7 +56,7 @@ const HrDashboard = () => {
                 // Fetch applications for all HR jobs
                 const hrJobIds = jobsData.map(job => job._id.toString());
                 const applicationPromises = hrJobIds.map(jobId =>
-                    axios.get(`${API_URL}/applications/job/${jobId}`, config)
+                    axios.get(`${API_URL}/api/applications/job/${jobId}`, config)
                         .catch(err => {
                             console.error(`Error fetching applications for job ${jobId}:`, err);
                             return { data: { applications: [] } };
@@ -163,7 +163,7 @@ const HrDashboard = () => {
                 }
             };
 
-            const applicationsResponse = await axios.get(`${API_URL}/applications/job/${jobId}`, config);
+            const applicationsResponse = await axios.get(`${API_URL}/api/applications/job/${jobId}`, config);
             const jobApplications = applicationsResponse.data.applications || [];
 
             if (jobApplications.length === 0) {
@@ -174,7 +174,7 @@ const HrDashboard = () => {
             for (const app of jobApplications) {
                 try {
                     const resumeResponse = await axios.get(
-                        `${API_URL}/applications/resume/${app._id}`,
+                        `${API_URL}/api/applications/resume/${app._id}`,
                         {
                             ...config,
                             responseType: 'blob'
@@ -212,7 +212,7 @@ const HrDashboard = () => {
                     'Content-Type': 'application/json'
                 }
             };
-            await axios.delete(`${API_URL}/jobs/delete/${jobId}`, config);
+            await axios.delete(`${API_URL}/api/jobs/delete/${jobId}`, config);
 
             setStats(prevStats => ({
                 ...prevStats,
