@@ -19,6 +19,16 @@ const Services = () => {
     };
 
     const allServices = [
+        // Adding QA Services as the first item
+        {
+            id: 0,
+            title: 'QA Services',
+            description: 'Comprehensive software quality assurance services to ensure your applications meet the highest standards.',
+            imageSrc: assets.s8, // Using an existing image - you might want to replace with a QA-specific image
+            category: 'Quality Assurance',
+            color: '#3B82F6', // Blue
+            url: '/services/qa-services'
+        },
         {
             id: 1,
             title: 'AI/ML Solutions',
@@ -214,37 +224,9 @@ const Services = () => {
                                         }`}
                                     >
                                         <span>{category}</span>
-                                        {/* <span className={`text-xs px-2 py-1 rounded-full ${
-                                            activeCategory === category
-                                                ? 'bg-white/20 text-white'
-                                                : 'bg-gray-200 text-gray-700'
-                                        }`}>
-                                            {category === 'All' 
-                                                ? allServices.length 
-                                                : allServices.filter(s => s.category === category).length}
-                                        </span> */}
                                     </motion.button>
                                 ))}
-                            </div>
-
-                            {/* <motion.div 
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.5 }}
-                                className="mt-8 bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-lg border border-indigo-100"
-                            >
-                                <h4 className="text-indigo-700 font-semibold mb-2">Lost in Choices?</h4>
-                                <p className="text-gray-600 text-sm mb-3">
-                                    Let us guide you to the perfect solution
-                                </p>
-                                <button className="text-sm font-medium text-indigo-600 hover:text-purple-600 flex items-center group">
-                                    <span>Connect with us</span>
-                                    <svg className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                            </motion.div> */}
-                            
+                            </div>                           
                         </div>
                     </motion.div>
 
@@ -344,7 +326,7 @@ const Services = () => {
                                 animate={{ opacity: 1 }}
                                 className="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100"
                             >
-                                {/* ... (keeping your empty state) */}
+                                <p className="text-gray-600">No services found in this category.</p>
                             </motion.div>
                         )}
                     </div>

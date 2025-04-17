@@ -42,6 +42,7 @@ import AiMl from './components/coursel/AiMl';
 import CybSec from './components/coursel/CyberSec';
 import AIInnovationHub from './components/coursel/AIInnovationHub';
 import Profile from './pages/Profile';
+import QAServices from './components/services/QAServices';
 
 export const API_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -82,6 +83,7 @@ const App = () => {
                     <Route path="/products/cloud-security-suite" element={<CloudSecuritySuiteDetail />} />
                     <Route path="/products/cyber-threat-analyzer" element={<CyberThreatAnalyzerDetail />} />
                     <Route path="/products/robotics-research-kit" element={<RoboticsResearchKitDetail />} />
+                    <Route path="/services/qa-services" element={<QAServices />} />
                     <Route path="/services/ai-ml-solutions" element={<AIMlSolutions />} />
                     <Route path="/services/cyber-security" element={<CyberSecurity />} />
                     <Route path="/services/healthcare" element={<Healthcare />} />
