@@ -24,7 +24,7 @@ const Services = () => {
             id: 0,
             title: 'QA Services',
             description: 'Comprehensive software quality assurance services to ensure your applications meet the highest standards.',
-            imageSrc: assets.s8, // Using an existing image - you might want to replace with a QA-specific image
+            imageSrc: assets.s13, // Using an existing image - you might want to replace with a QA-specific image
             category: 'Quality Assurance',
             color: '#3B82F6', // Blue
             url: '/services/qa-services'

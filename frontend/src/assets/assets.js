@@ -16,6 +16,7 @@ import s9 from './s9.jpg'
 import s10 from './s10.jpg'
 import s11 from './s11.jpg'
 import s12 from './s12.jpg'
+import s13 from './s13.jpg'
 import product1 from './product1.jpg';
 import product2 from './product2.jpg';
 import product3 from './product3.jpg';
@@ -62,7 +63,7 @@ export const assets = {
     coursel3,
     bird,
     about,
-    s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12,
+    s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12,s13,
     product1, product2, product3, product4, product5, product6, product7,fp,
     t1, t2, t3, t4, t5, t6, t7, t8, t9, t10,
     t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21,t22,
