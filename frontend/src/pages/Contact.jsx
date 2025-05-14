@@ -54,35 +54,25 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="min-h-screen bg-gray-50 py-20 flex flex-col items-center justify-start">
-            {/* Contact Form - Top */}
-            <div className="w-full max-w-6xl mx-auto px-3 md:px-6 mb-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Left Side - Unique Design */}
-                    <div className="relative hidden lg:block">
-                        <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl transform -rotate-6"></div>
-                        <div className="relative bg-white rounded-2xl shadow-md p-8 h-full flex flex-col justify-center">
-                            <div className="space-y-6">
-                                <h2 className="text-4xl font-bold text-teal-800 leading-tight">
-                                    Let's Connect
-                                </h2>
-                                <p className="text-gray-600 text-lg">
-                                    Your thoughts matter to us. Reach out and let's start a conversation!
-                                </p>
-                                <div className="flex space-x-4">
-                                    <a href="mailto:info@cliffservices.com" className=" cursor-pointer w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center">
-                                        <Mail className='w-6 h-6 text-teal-600'/>
-                                    </a>
-                                    <a href="tel:+18001234567" className="w-12 h-12 cursor-pointer bg-teal-100 rounded-full flex items-center justify-center">
-                                        <Phone className='w-6 h-6 text-teal-600'/>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="absolute bottom-0 right-0 w-24 h-24 bg-teal-200 rounded-tl-full opacity-30"></div>
-                        </div>
+        <div id="contact" className="min-h-screen bg-gray-50 flex flex-col">
+            {/* Main Content Container */}
+            <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-6 flex flex-col">
+                {/* Section Header */}
+                <div className="text-center mb-6">
+                    <h2 className="text-3xl font-bold text-teal-800">Get In Touch</h2>
+                    <div className="flex justify-center items-center space-x-4 mt-2">
+                        <a href="mailto:info@cliffservices.com" className="cursor-pointer w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
+                            <Mail className="w-4 h-4 text-teal-600"/>
+                        </a>
+                        <a href="tel:+18001234567" className="cursor-pointer w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
+                            <Phone className="w-4 h-4 text-teal-600"/>
+                        </a>
                     </div>
-
-                    {/* Right Side - Original Contact Form */}
+                </div>
+                
+                {/* Two Column Layout - Made responsive for small screens */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Left Side - Contact Form */}
                     <div className="bg-white rounded-2xl shadow-md p-5 md:p-8 border-t-4 border-teal-500">
                         <h2 className="text-3xl font-semibold text-teal-800 text-center mb-4">Contact Us</h2>
                         <p className="text-gray-600 text-center mb-8">We’d love to hear from you. Fill out the form below to get in touch.</p>
@@ -162,80 +152,79 @@ const Contact = () => {
                             </button>
                         </form>
                     </div>
-                </div>
-            </div>
 
-            {/* Contact Info - Bottom */}
-            <div className="w-full max-w-5xl mx-auto px-6 space-y-12">
-                <h3 className="text-4xl font-bold text-teal-700 text-center mb-8">Our Locations</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-8">
-                    {[
-                        {
-                            "country": "United States",
-                            "city": "Herndon, Virginia",
-                            "address": "13873 Park Center Road, Suite 155-33, Herndon, Virginia 20171, US",
-                            "frontImage": assets.usa1,
-                            "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        },
-                        {
-                            "country": "United Kingdom",
-                            "city": "Melton Mowbray, Leicestershire",
-                            "address": "Pera Business Park, Melton Mowbray, Leicestershire LE13 0PB, GB",
-                            "frontImage": assets.uk1,
-                            "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        },
-                        {
-                            "country": "Canada",
-                            "city": "Toronto, Ontario",
-                            "address": "130 Westmore Dr, Unit #5, Toronto, Ontario M9V 5E2, CA",
-                            "frontImage": assets.c1,
-                            "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        },
-                        {
-                            "country": "India",
-                            "city": "Hyderabad, Telangana",
-                            "address": "8-2-78, 1st Floor, CNR Complex, Chintal Kunta Road, L B Nagar, Hyderabad, Telangana 500074, IN",
-                            "frontImage": assets.i1,
-                            "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        },
-                        {
-                            "country": "Australia",
-                            "city": "Williams Landing, Victoria",
-                            "address": "12 Spoonbill Cl, Williams Landing, Victoria, 3027, AU",
-                            "frontImage":assets.a1,
-                            "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        }
-                    ].map((office, index) => (
-                        <div
-                            key={index}
-                            className="flip-container h-[350px] w-full min-w-[320px] max-w-[360px] mx-auto"
-                        >
-                            <div className="flipper">
-                                {/* Front Side */}
+                    {/* Right Side - Locations */}
+                    <div className="bg-white rounded-2xl shadow-md p-6">
+                        <h3 className="text-xl font-semibold text-teal-800 mb-4">Our Locations</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+                            {[
+                                {
+                                    "country": "United States",
+                                    "city": "Herndon, Virginia",
+                                    "address": "13873 Park Center Road, Suite 155-33, Herndon, Virginia 20171, US",
+                                    "frontImage": assets.usa1,
+                                    "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                },
+                                {
+                                    "country": "United Kingdom",
+                                    "city": "Melton Mowbray, Leicestershire",
+                                    "address": "Pera Business Park, Melton Mowbray, Leicestershire LE13 0PB, GB",
+                                    "frontImage": assets.uk1,
+                                    "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                },
+                                {
+                                    "country": "Canada",
+                                    "city": "Toronto, Ontario",
+                                    "address": "130 Westmore Dr, Unit #5, Toronto, Ontario M9V 5E2, CA",
+                                    "frontImage": assets.c1,
+                                    "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                },
+                                {
+                                    "country": "India",
+                                    "city": "Hyderabad, Telangana",
+                                    "address": "8-2-78, 1st Floor, CNR Complex, Chintal Kunta Road, L B Nagar, Hyderabad, Telangana 500074, IN",
+                                    "frontImage": assets.i1,
+                                    "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                },
+                                {
+                                    "country": "Australia",
+                                    "city": "Williams Landing, Victoria",
+                                    "address": "12 Spoonbill Cl, Williams Landing, Victoria, 3027, AU",
+                                    "frontImage": assets.a1,
+                                    "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                }
+                            ].map((office, index) => (
                                 <div
-                                    className="front w-full h-full bg-cover bg-center rounded-xl shadow-lg flex items-center justify-center"
-                                    style={{ backgroundImage: `url(${office.frontImage})` }}
+                                    key={index}
+                                    className="flip-container h-40 w-full"
                                 >
-                                    <div className="bg-black bg-opacity-50 w-full h-full flex flex-col items-center justify-center rounded-xl">
-                                        <h4 className="text-3xl font-semibold text-white">{office.country}</h4>
-                                        <p className="text-xl text-white px-4">{office.city}</p>
+                                    <div className="flipper">
+                                        {/* Front Side */}
+                                        <div
+                                            className="front w-full h-full bg-cover bg-center rounded-lg shadow-md flex items-center justify-center"
+                                            style={{ backgroundImage: `url(${office.frontImage})` }}
+                                        >
+                                            <div className="bg-black bg-opacity-50 w-full h-full flex flex-col items-center justify-center rounded-lg">
+                                                <h4 className="text-base font-semibold text-white">{office.country}</h4>
+                                                <p className="text-xs text-white">{office.city}</p>
+                                            </div>
+                                        </div>
+                                        {/* Back Side */}
+                                        <div
+                                            className="back w-full h-full bg-cover bg-center rounded-lg shadow-md flex flex-col items-center justify-center"
+                                            style={{ backgroundImage: `url(${office.backImage})` }}
+                                        >
+                                            <div className="bg-black bg-opacity-70 w-full h-full flex items-center justify-center p-2 rounded-lg">
+                                                <p className="text-xs text-white">{office.address}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                {/* Back Side */}
-                                <div
-                                    className="back w-full h-full bg-cover bg-center rounded-xl shadow-lg flex flex-col items-center justify-start"
-                                    style={{ backgroundImage: `url(${office.backImage})` }}
-                                >
-                                    <div className="bg-black bg-opacity-60 w-full p-8 rounded-t-xl">
-                                        <p className="text-xl text-white">{office.address}</p>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
-
 
             {/* Custom Styles */}
             <style jsx>{`
@@ -262,8 +251,14 @@ const Contact = () => {
                 .back {
                     transform: rotateY(180deg);
                 }
+                
+                /* Custom media query for extra small screens */
+                @media (max-width: 640px) {
+                    .xs\\:grid-cols-2 {
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                    }
+                }
             `}</style>
-
         </div>
     );
 };

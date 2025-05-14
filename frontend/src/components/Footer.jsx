@@ -9,62 +9,62 @@ const Footer = () => {
 
     // Location coordinates and details for Google Maps
     const locations = {
-        uk: { 
-            lat: 51.509865, 
-            lng: -0.118092, 
-            name: 'UK', 
+        uk: {
+            lat: 51.509865,
+            lng: -0.118092,
+            name: 'UK',
             address: '25 London Bridge St, London SE1 9SG',
             phone: '+44 20 1234 5678',
-            email: 'uk@cliffservice.com' 
+            email: 'uk@cliffservice.com'
         },
-        usa: { 
-            lat: 37.7749, 
-            lng: -122.4194, 
-            name: 'USA', 
+        usa: {
+            lat: 37.7749,
+            lng: -122.4194,
+            name: 'USA',
             address: '123 Business Ave, Suite 100, San Francisco, CA',
             phone: '+1 (800) 123-4567',
-            email: 'usa@cliffservice.com' 
+            email: 'usa@cliffservice.com'
         },
-        canada: { 
-            lat: 43.6532, 
-            lng: -79.3832, 
-            name: 'Canada', 
+        canada: {
+            lat: 43.6532,
+            lng: -79.3832,
+            name: 'Canada',
             address: '100 Queen St W, Toronto, ON M5H 2N2',
             phone: '+1 416 123 4567',
-            email: 'canada@cliffservice.com' 
+            email: 'canada@cliffservice.com'
         },
-        australia: { 
-            lat: -33.8688, 
-            lng: 151.2093, 
-            name: 'Australia', 
+        australia: {
+            lat: -33.8688,
+            lng: 151.2093,
+            name: 'Australia',
             address: '10 Market St, Sydney NSW 2000',
             phone: '+61 2 1234 5678',
-            email: 'australia@cliffservice.com' 
+            email: 'australia@cliffservice.com'
         },
-        india: { 
-            lat: 28.6139, 
-            lng: 77.2090, 
-            name: 'India', 
+        india: {
+            lat: 28.6139,
+            lng: 77.2090,
+            name: 'India',
             address: '24 Barakhamba Road, New Delhi, 110001',
             phone: '+91 11 1234 5678',
-            email: 'india@cliffservice.com' 
+            email: 'india@cliffservice.com'
         }
     };
 
     // Different options for handling location clicks:
-    
+
     // Option 1: Show modal with map (default in this code)
     const handleLocationClick = (location) => {
         const locationKey = location.toLowerCase();
         setSelectedLocation(selectedLocation === locationKey ? null : locationKey);
     };
-    
+
     // Option 2: Direct redirect to internal page (uncomment to use)
     const redirectToLocationPage = (location) => {
         const locationKey = location.toLowerCase();
         window.location.href = `/locations/${locationKey}`;
     };
-    
+
     // Option 3: Open in Google Maps (uncomment to use)
     const openInGoogleMaps = (location) => {
         const locationKey = location.toLowerCase();
@@ -236,7 +236,7 @@ const Footer = () => {
                                     <div>
                                         <p className="text-slate-300 font-medium">Email Us</p>
                                         <a href="mailto:careers@cliffservice.com" className="text-slate-400 hover:text-indigo-400 transition-colors">
-                                            careers@cliffservice.com
+                                            info@cliffservice.com
                                         </a>
                                     </div>
                                 </li>
@@ -249,7 +249,7 @@ const Footer = () => {
                                     <div>
                                         <p className="text-slate-300 font-medium">Call Us</p>
                                         <a href="tel:+18001234567" className="text-slate-400 hover:text-indigo-400 transition-colors">
-                                            +1 (800) 123-4567
+                                            +44 (0) 330-133-4363
                                         </a>
                                     </div>
                                 </li>
@@ -263,7 +263,7 @@ const Footer = () => {
                                     <div>
                                         <p className="text-slate-300 font-medium">Main Office</p>
                                         <p className="text-slate-400">
-                                            123 Business Ave, Suite 100
+                                            Pera Business Park, Nottingham Road, Melton Mowbray, LE13 0PB.
                                         </p>
                                     </div>
                                 </li>
@@ -303,7 +303,7 @@ const Footer = () => {
                                 <h3 className="text-lg font-semibold text-white">
                                     {locations[selectedLocation].name} Office
                                 </h3>
-                                <button 
+                                <button
                                     onClick={closeMap}
                                     className="p-1 rounded-full hover:bg-slate-800 transition-colors"
                                 >
@@ -339,16 +339,16 @@ const Footer = () => {
                                     </div> */}
                                 </div>
                                 <div className="flex justify-between flex-wrap gap-3">
-                                    <a 
+                                    <a
                                         href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(locations[selectedLocation].address)}`}
-                                        target="_blank" 
+                                        target="_blank"
                                         rel="noopener noreferrer"
                                         className="px-4 py-2 bg-slate-800 hover:bg-slate-700 transition-colors rounded-lg text-white text-sm flex items-center gap-1.5"
                                     >
                                         <ArrowRight size={16} /> Get Directions
                                     </a>
                                     <div className="flex gap-3">
-                                        <button 
+                                        <button
                                             onClick={closeMap}
                                             className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-medium text-white hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 text-sm"
                                         >
