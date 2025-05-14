@@ -29,6 +29,7 @@ app.use(express.json());
 const allowedOrigins = [
     'http://localhost:5174', // Local frontend
     'http://localhost:5175', // Local admin
+    'https://website-9dcc0a45.gxz.cjs.mybluehost.me', // Local frontend
     'https://cliff-services-career.onrender.com', // Production frontend
     'https://cliff-services-career-admin.onrender.com' // Production admin
 ];
