@@ -160,36 +160,36 @@ const Contact = () => {
                             {[
                                 {
                                     "country": "United States",
-                                    "city": "Herndon, Virginia",
-                                    "address": "13873 Park Center Road, Suite 155-33, Herndon, Virginia 20171, US",
+                                    "city": "Herndon, VA",
+                                    "address": "13873, Park Center Road, Suite 181,Herndon, VA 20171 ",
                                     "frontImage": assets.usa1,
                                     "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                                 },
                                 {
                                     "country": "United Kingdom",
-                                    "city": "Melton Mowbray, Leicestershire",
-                                    "address": "Pera Business Park, Melton Mowbray, Leicestershire LE13 0PB, GB",
+                                    "city": "Melton Mowbray",
+                                    "address": "Pera Business Park, Nottingham Road, Melton Mowbray, Leicestershire LE13 OPB, ",
                                     "frontImage": assets.uk1,
                                     "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                                 },
                                 {
                                     "country": "Canada",
-                                    "city": "Toronto, Ontario",
-                                    "address": "130 Westmore Dr, Unit #5, Toronto, Ontario M9V 5E2, CA",
+                                    "city": "Mississauga, ON",
+                                    "address": "4 Robert Speck Parkway, Suite 1500, Mississauga, ON L4Z 1S1 ",
                                     "frontImage": assets.c1,
                                     "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                                 },
                                 {
                                     "country": "India",
                                     "city": "Hyderabad, Telangana",
-                                    "address": "8-2-78, 1st Floor, CNR Complex, Chintal Kunta Road, L B Nagar, Hyderabad, Telangana 500074, IN",
+                                    "address": "Spacion Business Center, Hitec City, Hyderabad, Telangana, 500081 - IN ",
                                     "frontImage": assets.i1,
                                     "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                                 },
                                 {
                                     "country": "Australia",
                                     "city": "Williams Landing, Victoria",
-                                    "address": "12 Spoonbill Cl, Williams Landing, Victoria, 3027, AU",
+                                    "address": "12 Spoonbill Cl, Williams Landing, Victoria, 3027",
                                     "frontImage": assets.a1,
                                     "backImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                                 }

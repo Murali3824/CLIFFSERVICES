@@ -8,48 +8,49 @@ const Footer = () => {
     const [selectedLocation, setSelectedLocation] = useState(null);
 
     // Location coordinates and details for Google Maps
-    const locations = {
-        uk: {
-            lat: 51.509865,
-            lng: -0.118092,
-            name: 'UK',
-            address: '25 London Bridge St, London SE1 9SG',
-            phone: '+44 20 1234 5678',
-            email: 'uk@cliffservice.com'
-        },
-        usa: {
-            lat: 37.7749,
-            lng: -122.4194,
-            name: 'USA',
-            address: '123 Business Ave, Suite 100, San Francisco, CA',
-            phone: '+1 (800) 123-4567',
-            email: 'usa@cliffservice.com'
-        },
-        canada: {
-            lat: 43.6532,
-            lng: -79.3832,
-            name: 'Canada',
-            address: '100 Queen St W, Toronto, ON M5H 2N2',
-            phone: '+1 416 123 4567',
-            email: 'canada@cliffservice.com'
-        },
-        australia: {
-            lat: -33.8688,
-            lng: 151.2093,
-            name: 'Australia',
-            address: '10 Market St, Sydney NSW 2000',
-            phone: '+61 2 1234 5678',
-            email: 'australia@cliffservice.com'
-        },
-        india: {
-            lat: 28.6139,
-            lng: 77.2090,
-            name: 'India',
-            address: '24 Barakhamba Road, New Delhi, 110001',
-            phone: '+91 11 1234 5678',
-            email: 'india@cliffservice.com'
-        }
-    };
+const locations = {
+    uk: {
+        lat: 51.509865,
+        lng: -0.118092,
+        name: 'UK',
+        address: 'Pera Business Park, Nottingham Road, Melton Mowbray, Leicestershire LE13 OPB',
+        phone: '+44 20 1234 5678',
+        email: 'uk@cliffservice.com'
+    },
+    usa: {
+        lat: 37.7749,
+        lng: -122.4194,
+        name: 'USA',
+        address: '13873, Park Center Road, Suite 181, Herndon, VA 20171',
+        phone: '+1 (800) 123-4567',
+        email: 'usa@cliffservice.com'
+    },
+    canada: {
+        lat: 43.6532,
+        lng: -79.3832,
+        name: 'Canada',
+        address: '4 Robert Speck Parkway, Suite 1500, Mississauga, ON L4Z 1S1',
+        phone: '+1 416 123 4567',
+        email: 'canada@cliffservice.com'
+    },
+    australia: {
+        lat: -33.8688,
+        lng: 151.2093,
+        name: 'Australia',
+        address: '12 Spoonbill Cl, Williams Landing, Victoria, 3027',
+        phone: '+61 2 1234 5678',
+        email: 'australia@cliffservice.com'
+    },
+    india: {
+        lat: 28.6139,
+        lng: 77.2090,
+        name: 'India',
+        address: 'Spacion Business Center, Hitec City, Hyderabad, Telangana, 500081 - IN',
+        phone: '+91 11 1234 5678',
+        email: 'india@cliffservice.com'
+    }
+};
+
 
     // Different options for handling location clicks:
 

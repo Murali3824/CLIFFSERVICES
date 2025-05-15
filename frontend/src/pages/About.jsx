@@ -167,7 +167,7 @@ const About = () => {
                                 <span className="block text-white glitch-text" data-text="CLIFF">CLIFF</span>
                                 <span className="block text-red-400 glitch-text ml-6" data-text="SERVICES">SERVICES</span>
                             </h1>
-                            <p className="text-lg md:text-2xl font-light max-w-2xl text-gray-100 leading-relaxed ml-1 split-text">
+                            <p className="text-lg md:text-2xl font-light max-w-2xl bg-black/30 p-5 leading-relaxed ml-1 split-text">
                                 Born in the UK, now leading global innovation. We transform your technological vision into reality with precision and cutting-edge expertise.
                             </p>
                             {/* <div className="mt-16 flex flex-wrap gap-4">

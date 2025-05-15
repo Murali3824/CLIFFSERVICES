@@ -139,6 +139,10 @@ const ApplyNowPanel = ({ job, isOpen, onClose }) => {
         }
     };
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     // Reset status when closing
     useEffect(() => {
         if (!isOpen) {

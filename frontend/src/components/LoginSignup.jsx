@@ -166,9 +166,9 @@ const LoginSignup = () => {
                         err.response?.data?.errors?.[0]?.msg ||
                         err.response?.data?.msg ||
                         'Operation failed';
-                    
+
                     // Check if error is about email verification
-                    if (errorMsg.toLowerCase().includes('verify your email') || 
+                    if (errorMsg.toLowerCase().includes('verify your email') ||
                         errorMsg.toLowerCase().includes('not verified')) {
                         setMessage('Please enter the OTP sent to your email');
                         setShowVerify(true);
@@ -189,6 +189,10 @@ const LoginSignup = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className="min-h-screen py-32 flex items-center justify-center bg-white">
@@ -270,7 +274,7 @@ const LoginSignup = () => {
                                         </>
                                     )}
                                 </p>
-                                
+
                                 <div className="md:flex md:items-center md:gap-2 mt-2">
                                     <label className="text-sm flex items-center md:w-1/3">
                                         Email Address: <span className="text-red-500 ml-1">*</span>
@@ -473,9 +477,9 @@ const LoginSignup = () => {
                     >
                         {loading ? (
                             <>
-                            Processing...
+                                Processing...
                             </>
-                        ) : ( 
+                        ) : (
                             showVerify ? 'Verify' : isRegister ? 'Sign Up' : 'Sign In'
                         )}
                     </button>
