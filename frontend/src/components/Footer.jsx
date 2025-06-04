@@ -14,7 +14,7 @@ const locations = {
         lng: -0.118092,
         name: 'UK',
         address: 'Pera Business Park, Nottingham Road, Melton Mowbray, Leicestershire LE13 OPB',
-        phone: '+44 20 1234 5678',
+        phone: '+44 330 133 4363',
         email: 'uk@cliffservice.com'
     },
     usa: {
@@ -22,15 +22,15 @@ const locations = {
         lng: -122.4194,
         name: 'USA',
         address: '13873, Park Center Road, Suite 181, Herndon, VA 20171',
-        phone: '+1 (800) 123-4567',
+        phone: '+1 (571) 833-1714',
         email: 'usa@cliffservice.com'
     },
     canada: {
         lat: 43.6532,
         lng: -79.3832,
         name: 'Canada',
-        address: '4 Robert Speck Parkway, Suite 1500, Mississauga, ON L4Z 1S1',
-        phone: '+1 416 123 4567',
+        address: 'Robert Speck Parkway, Suite 1500, Mississauga, ON L4Z 3Y4',
+        phone: '+44 330 133 4363',
         email: 'canada@cliffservice.com'
     },
     australia: {
@@ -38,7 +38,7 @@ const locations = {
         lng: 151.2093,
         name: 'Australia',
         address: '12 Spoonbill Cl, Williams Landing, Victoria, 3027',
-        phone: '+61 2 1234 5678',
+        phone: '+44 330 133 4363',
         email: 'australia@cliffservice.com'
     },
     india: {
@@ -46,7 +46,7 @@ const locations = {
         lng: 77.2090,
         name: 'India',
         address: 'Spacion Business Center, Hitec City, Hyderabad, Telangana, 500081 - IN',
-        phone: '+91 11 1234 5678',
+        phone: '+91 8008432111',
         email: 'india@cliffservice.com'
     }
 };
@@ -250,7 +250,7 @@ const locations = {
                                     <div>
                                         <p className="text-slate-300 font-medium">Call Us</p>
                                         <a href="tel:+18001234567" className="text-slate-400 hover:text-indigo-400 transition-colors">
-                                            +44 (0) 330-133-4363
+                                            +44 330 133 4363
                                         </a>
                                     </div>
                                 </li>
