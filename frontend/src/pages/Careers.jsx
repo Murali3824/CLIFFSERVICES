@@ -23,6 +23,10 @@ const JobDescriptionPanel = ({ job, isOpen, onClose }) => (
                             <p className="text-gray-600">{job?.overview}</p>
                         </div>
                         <div>
+                            <h3 className="text-lg font-semibold text-gray-700 mb-3">Short Description</h3>
+                            <p className="text-gray-600">{job?.shortdescription}</p>
+                        </div>
+                        <div className='md:col-span-2'>
                             <h3 className="text-lg font-semibold text-gray-700 mb-3">Key Responsibilities</h3>
                             <ul className="space-y-2 text-gray-600">
                                 {job?.responsibilities.map((item, index) => (
@@ -355,7 +359,8 @@ const Careers = () => {
                 const data = await response.json();
                 if (data.success) {
                     setJobs(data.jobs);
-                } else {
+                    // console.log(data.jobs);
+                    } else {
                     setError(data.message || 'Failed to fetch job listings');
                 }
             } catch (err) {
