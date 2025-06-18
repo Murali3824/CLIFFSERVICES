@@ -184,3 +184,42 @@ export const resetPassword = async (req, res) => {
         res.status(500).json({ msg: "Server error" });
     }
 };
+
+export const contactController = {
+    sendContactEmail: async (req, res) => {
+        const { name, email, subject, message, to_email } = req.body;
+
+        // Validate input
+        if (!name || !email || !subject || !message || !to_email) {
+            return res.status(400).json({ error: 'All fields are required' });
+        }
+
+        // Email options
+        const mailOptions = {
+            from: `"${name}" <${email}>`,
+            to: to_email,
+            subject: subject,
+            text: `
+                Name: ${name}
+                Email: ${email}
+                Subject: ${subject}
+                Message: ${message}
+            `,
+            html: `
+                <h2>Cliff Services Customer Contact Request</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Subject:</strong> ${subject}</p>
+                <p><strong>Message:</strong> ${message}</p>
+            `,
+        };
+
+        try {
+            await transporter.sendMail(mailOptions);
+            res.status(200).json({ message: 'Email sent successfully' });
+        } catch (error) {
+            console.error('Error sending email:', error);
+            res.status(500).json({ error: 'Failed to send email' });
+        }
+    },
+};

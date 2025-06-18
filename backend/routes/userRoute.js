@@ -1,7 +1,7 @@
 import express from 'express';
 import { check } from 'express-validator';
 // import authController from '../controllers/authController.js';
-import { forgotPassword, getUserProfile, login, register, resetPassword, verifyOtp, } from '../controllers/userController.js'
+import { contactController, forgotPassword, getUserProfile, login, register, resetPassword, verifyOtp, } from '../controllers/userController.js'
 import userAuth from '../middleware/userAuth.js';
 
 const userRouter = express.Router();
@@ -40,5 +40,7 @@ userRouter.post(
   resetPassword
 );
 
+// Contact Us
+userRouter.post('/contact',contactController.sendContactEmail)
 
 export default userRouter;

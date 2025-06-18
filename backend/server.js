@@ -68,10 +68,18 @@ app.get('/api', (req, res) => {
     res.send('API is running...');
 });
 
-// Catch-all route for career portal (non-API routes)
+// For career site
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 app.get(/^(?!\/api\/).*/, (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
+
+// For admin panel
+app.use('/admin', express.static(path.join(__dirname, '../admin/dist')));
+app.get('/admin/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../admin/dist', 'index.html'));
+});
+
 
 // Catch-all route for admin panel (non-API routes starting with /admin)
 app.get('/admin/*', (req, res) => {
