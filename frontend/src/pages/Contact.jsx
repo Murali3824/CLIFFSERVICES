@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { assets } from '../assets/assets';
 import { Mail, Phone } from 'lucide-react';
+import { API_URL } from '../App';
+import axios from 'axios';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -22,35 +23,34 @@ const Contact = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const serviceID = 'service_yla6w1u'; // Replace with your EmailJS Service ID
-        const templateID = 'template_gpr86j8'; // Replace with your EmailJS Template ID
-        const publicKey = 'CQhQ6NC8px4ES2ePa'; // Replace with your EmailJS Public Key
-        const companyEmail = 'careers@cliffservice.com'; // Replace with your company email
+        const companyEmail = '22831a7239@gniindia.org'; // Updated company email
 
-        const templateParams = {
-            from_name: formData.name,
-            from_email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-            to_email: companyEmail,
-        };
+        try {
+            const response = await axios.post(`${API_URL}/api/user/contact`, {
+                ...formData,
+                to_email: companyEmail,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
 
-        emailjs.send(serviceID, templateID, templateParams, publicKey)
-            .then((response) => {
-                console.log('Email sent successfully:', response.status, response.text);
+            if (response.status === 200) {
                 setFormData({ name: '', email: '', subject: '', message: '' });
                 setIsSubmitted(true);
                 setError(null);
                 setTimeout(() => setIsSubmitted(false), 5000);
-            })
-            .catch((err) => {
-                setError('Failed to send message. Please try again.');
-                setTimeout(() => setError(null), 5000);
-                console.error('Error sending email:', err);
-            });
+            } else {
+                throw new Error('Failed to send message');
+            }
+        } catch (err) {
+            setError('Failed to send message. Please try again.');
+            setTimeout(() => setError(null), 5000);
+            console.error('Error sending email:', err);
+        }
     };
 
     return (
