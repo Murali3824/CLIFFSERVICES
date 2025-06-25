@@ -23,6 +23,8 @@ app.use(express.json());
 const allowedOrigins = [
     'http://localhost:5174', // Local frontend
     'http://localhost:5175', // Local admin
+    'https://cliffservices.onrender.com', // Frontend on Render
+    'https://cliffservices-admin.onrender.com' // Admin on Render
 ];
 
 const corsOptions = {
